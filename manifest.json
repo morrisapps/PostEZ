@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Canada Post Shipping Label PDF Resizer",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.canadapost.ca/*",
+        "http://www.canadapost.ca/*",
+        "http://localhost:8000/*",
+        "https://matroclinous-illust.000webhostapp.com/Label_Sample_artifact-3.pdf/*"
+      ],
+      "js": [
+        "/src/content/CanadaPostContent.js"
+      ]
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "https://www.canadapost.ca/*",
+        "http://www.canadapost.ca/*",
+        "http://localhost:8000/*",
+        "https://matroclinous-illust.000webhostapp.com/Label_Sample_artifact-3.pdf/*"
+      ],
+      "js": [
+        "/src/content/DefaultContent.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "/icons/redicon.png",
+    "default_title": "Canada Post Shipping Label PDF Resizer",
+    "default_popup": "/src/popup.html"
+  },
+  "background": {
+    "scripts": [
+      "/src/Background.js"
+    ]
+  },
+  "permissions": [
+    "<all_urls>",
+    "tabs"
+  ]
+}
